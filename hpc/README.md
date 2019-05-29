@@ -1,7 +1,7 @@
 
-**`create_multinode_jobs.py`** is used to create multiple multinode jobs to be run on hpc.
+**`create_multinode_jobs.py`** is used to create multinode jobs to be run on hpc.
 
-**Use case:** when you want to run a particular task, args.task_script, with different combinations of input arguments, hard coded in create_multinode_jobs.py as 'params1', 'params2' etc.
+**Use case:** when you want to run a particular task, `args.task_script`, with different combinations of input arguments, hard coded in `create_multinode_jobs.py` as `params1`, `params2` etc.
 
 **Usage:** 
 To print the help string.
@@ -9,7 +9,7 @@ To print the help string.
 python create_multinode_jobs.py -h
 ```
 
-To create jobs:
+**To create jobs:**
 ```python
 python create_multinode_jobs.py -num_task_per_process 3 -num_process_per_job 6 -task_script test_dummy_task/dummy_task_script.py -jobs_dir multinodejobs -multi_job_file all_multi_jobs.sh
 ```
