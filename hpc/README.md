@@ -3,6 +3,12 @@
 
 **Use case:** when you want to run a particular task, `args.task_script`, with different combinations of input arguments, hard coded in `create_multinode_jobs.py` as `params1`, `params2` etc.
 
+**Assumption:** 
+* `args.task_script` is a python script, run using `$HOME/anaconda3/bin/python`. You can change this at line 74-75.
+* Password less ssh is setup properly. Follow http://supercomputing.iitd.ac.in/?FAQ#sshkeys
+* Headers are specified properly in `single_run.sh` and `multinode_header.sh`
+* `module_load_str` is appropriately set at line 42
+
 **Usage:** 
   
   To print the help string:
