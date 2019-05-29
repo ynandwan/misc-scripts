@@ -4,16 +4,17 @@
 **Use case:** when you want to run a particular task, `args.task_script`, with different combinations of input arguments, hard coded in `create_multinode_jobs.py` as `params1`, `params2` etc.
 
 **Usage:** 
-To print the help string.
-```python
-python create_multinode_jobs.py -h
-```
+  
+  To print the help string:
+  ```python
+  python create_multinode_jobs.py -h
+  ```
 
-**To create jobs:**
-```python
-python create_multinode_jobs.py -num_task_per_process 3 -num_process_per_job 6 -task_script test_dummy_task/dummy_task_script.py -jobs_dir multinodejobs -multi_job_file all_multi_jobs.sh
-```
-Creates a directory `jobs_dir` with all the multinode and single node jobs. All jobs are scheduled in one shot via `args.multi_job_file` shell script generated in `args.jobs_dir`
+  **To create jobs:**
+  ```python
+  python create_multinode_jobs.py -num_task_per_process 3 -num_process_per_job 6 -task_script test_dummy_task/dummy_task_script.py -jobs_dir multinodejobs -multi_job_file all_multi_jobs.sh
+  ```
+  Creates a directory `jobs_dir` with all the multinode and single node jobs. All jobs are scheduled in one shot via `args.multi_job_file` shell script generated in `args.jobs_dir`
 
 ---------------------
 
@@ -32,8 +33,8 @@ Each multi node job `multi_job_{k}.sh` runs `args.num_process_per_job` number of
 
 Each command in `exp_{i}.sh` runs `args.task_script` with a combination of input arguments as hard-coded in `create_multinode_jobs.py`
 Different values of an input argument should be provided as a list and a separate list for each input arg should be provided. 
-e.g. params1, params2 and params3 in `create_multinode_jobs.py`.  
-#Tasks = Cross product of params1, params2 and params3.
+e.g. `params1`, `params2` and `params3` in `create_multinode_jobs.py`.  
+#Tasks = Cross product of `params1`, `params2` and `params3`.
 
 Jobs are sorted in the decreasing order of time it takes to run them.
 
