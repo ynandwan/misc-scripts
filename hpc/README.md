@@ -1,16 +1,16 @@
 Script to create multinode hpc jobs.
 
 **Usage:** 
-**python create_multinode_jobs.py -h**
-Prints the help string.
+**python create_multinode_jobs.py -h**: Prints the help string.
 
-**python create_multinode_jobs.py -num_task_per_process 3 -num_process_per_job 6 -task_script test_dummy_task/dummy_task_script.py -jobs_dir multinodejobs**
-Creates a directory 'jobs_dir' with all the multinode and single node jobs.
+**python create_multinode_jobs.py -num_task_per_process 3 -num_process_per_job 6 -task_script test_dummy_task/dummy_task_script.py -jobs_dir multinodejobs -multi_job_file all_multi_jobs.sh**: Creates a directory 'jobs_dir' with all the multinode and single node jobs. All jobs to be scheduled in one shot via args.multi_job_file shell script in args.jobs_dir
 
 ---------------------
 
 **create_multinode_jobs.py** is used to create multiple multinode jobs to be run on hpc. 
-**Use case:** when you want to run a particular task, args.task_script, with different combinations of input arguments, hard coded in create_multinode_jobs.py 
+**Use case:** when you want to run a particular task, args.task_script, with different combinations of input arguments, hard coded in create_multinode_jobs.py as 'params1', 'params2' etc.
+
+**Detailed Description:**
 
 exp_{i}.sh scripts are created in args.jobs_dir. Each exp_{i}.sh script is a process to be run on one node. It fires args.num_task_per_process tasks in parallel.
 
