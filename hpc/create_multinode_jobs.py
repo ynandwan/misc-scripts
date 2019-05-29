@@ -39,6 +39,7 @@ args = parser.parse_args(sys.argv[1:])
 #To be changed as per the input arguments of the task_script ####
 # In the demo example, dummy_task_script.py takes three input arguments named input1, input2 and input3. Timing for each job has to be decided by timing_key parameter
 
+module_load_str = 'module load apps/pythonpackages/3.6.0/pytorch/0.4.1/gpu'
 param1 = [1,2,3,4,5,6]
 param2 = ['a','b','c','d']
 param3 = ['x','y','l','m','n']
@@ -66,7 +67,6 @@ pid_closing = 'for pid in ${pids[*]}; do \n \
 done\n'
 
 hack_str = ". /etc/profile.d/modules.sh"
-
 multi_header = open(args.multi_header).read()
 multi_run_script = open(args.multi_template).read()
 multi_run_script = multi_run_script.replace('${exp_dir}',ack_dir)
@@ -147,7 +147,7 @@ for log_str in sorted_job_names:
         print(header, file = fhj)
         
         print(hack_str, file = fhexp)
-        print('module load apps/pythonpackages/3.6.0/pytorch/0.4.1/gpu',file = fhexp)
+        print(module_load_str, file = fhexp)
         print('cd {}'.format(working_dir), file= fhexp)
         print('rm {}/JACK_{}'.format(ack_dir,jcount), file = fhexp)
 
