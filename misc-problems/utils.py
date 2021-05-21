@@ -4,6 +4,9 @@ import math
 def is_correct(query,pred):
     return (match_query(query,pred) and is_safe_sudoku(pred))
 
+def pointwise_accuracy(target,pred):
+    return (target.astype(int) == pred.astype(int)).sum()/target.size
+    
 
 def match_query(query, pred):
     mask = (query>0)
