@@ -57,5 +57,6 @@ def count_palindrom_dp(s,start=0,end=None):
 
 if __name__ == '__main__':
     print(count_palindrom_dp(sys.argv[1]))
+    print(count_palindrom_recursive(sys.argv[1]))
 
     

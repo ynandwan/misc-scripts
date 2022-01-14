@@ -1,0 +1,41 @@
+
+working_dir: '/home/cse/phd/csz178057/phd/temprels/distant_temprel_pub/'
+base_cmd: '/home/cse/phd/csz178057/.conda/envs/tr3/bin/python train_curriculum.py  --data matres --lm roberta --early_stop_data matres_dev_sup --eval_data matres_dev_sup matres_test_sup.constrained_tc --subselect_triples 0  --concat_tokens 1 --nbr_s 0 --nbr_e 0  --train_style sup' 
+
+cross_product_params:
+  - name: model_type
+    values: ['ft']
+    short_name:  'mt'
+
+  - name: lambda_warmup_fraction
+    values: [0.0]
+    short_name: 'lwf'
+  
+  - name: seed
+    values: [42, 5482, 9834]
+    short_name: 's'
+
+  - name: num_unsup
+    values: [0]
+    short_name: 'nu'
+  
+  - name: num_sup
+    values: [-1]
+    short_name: 'ns'
+
+
+param_groups:
+    short_names: ['agtr','rr','sll','tll','b','fa','ans','ns','e','ne']
+    names: ['aug_trans','rev_reg','sym_loss_lambda','trans_loss_lambda','batch','filter_annotated','aug_num_sentences','num_sentences','epochs','num_evals']
+    values_list:
+        - [0,0,0,0,16,1,1000,2,10,20]
+        - [0,1,0,0,16,1,1000,2,10,20]
+        - [1,0,0,0,8,1,1000,2,10,20]
+        - [1,1,0,0,8,1,1000,2,10,20]
+
+module_load_str: '' 
+order: True 
+# test mode only
+do_not_pass_params: []
+parse_value_fns:
+    dummy: dummy

@@ -1,0 +1,12 @@
+0 ans-1000_agtr-0_b-16_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-0_s-42_sll-0_tll-0
+1 ans-1000_agtr-0_b-16_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-1_s-42_sll-0_tll-0
+2 ans-1000_agtr-1_b-8_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-0_s-42_sll-0_tll-0
+3 ans-1000_agtr-1_b-8_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-1_s-42_sll-0_tll-0
+4 ans-1000_agtr-0_b-16_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-0_s-5482_sll-0_tll-0
+5 ans-1000_agtr-0_b-16_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-1_s-5482_sll-0_tll-0
+6 ans-1000_agtr-1_b-8_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-0_s-5482_sll-0_tll-0
+7 ans-1000_agtr-1_b-8_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-1_s-5482_sll-0_tll-0
+8 ans-1000_agtr-0_b-16_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-0_s-9834_sll-0_tll-0
+9 ans-1000_agtr-0_b-16_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-1_s-9834_sll-0_tll-0
+10 ans-1000_agtr-1_b-8_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-0_s-9834_sll-0_tll-0
+11 ans-1000_agtr-1_b-8_e-10_fa-1_lwf-0.0_mt-ft_ne-20_ns-2_ns-.1_nu-0_rr-1_s-9834_sll-0_tll-0
