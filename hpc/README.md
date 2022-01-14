@@ -1,4 +1,6 @@
 
+
+
 **`create_multinode_jobs.py`** is used to create multinode jobs to be run on hpc.
 
 **Use case:** when you want to run a particular task, `args.task_script`, with different combinations of input arguments, hard coded in `create_multinode_jobs.py` as `params1`, `params2` etc.
@@ -17,10 +19,16 @@
   ```
 
   **To create jobs:**
-  ```python
+
+```python
   python create_multinode_jobs.py -num_task_per_process 3 -num_process_per_job 6 -task_script test_dummy_task/dummy_task_script.py -jobs_dir multinodejobs -multi_job_file all_multi_jobs.sh
   ```
   Creates a directory `jobs_dir` with all the multinode and single node jobs. All jobs are scheduled in one shot via `args.multi_job_file` shell script generated in `args.jobs_dir`
+
+**Update**
+To specify the os at the run time, a new argument (selectos) is added. `create_multinode_jobs_sample.py` is a sample that I use to schedule my jobs for a specific task. It might not be generic and you may have to adapt it to your needs.
+
+```python create_multinode_jobs_sample.py -num_task_per_process 2 -num_process_per_job 6 -task_script <task_script> -template single_run.sh -multi_header multinode_header_os.sh -multi_template multinode_run.sh -single_job_file sj -multi_job_file mj -jobs_dir rl -job_name rl -selectos :centos=haswell -global_time 12 ```
 
 ---------------------
 
