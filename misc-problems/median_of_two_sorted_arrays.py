@@ -1,4 +1,6 @@
-### NOT WORKING
+### NOT WORKING. failing for 
+#[3,4]
+#[1,2,5,6]
 
 """
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
@@ -96,8 +98,12 @@ class Solution:
             if l1 == 1:
                 return max(A1[i1],A2[i2])
             else:
+                
                 if A2[i2] <= A1[i1]:
-                    return A1[i1]
+                    if l2 >= 2:
+                        return min(A1[i1],A2[i2+1])
+                    else:
+                        return A1[i1]
                 else:
                     return min(A1[i1+1], A2[i2])
         
