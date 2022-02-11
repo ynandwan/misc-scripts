@@ -104,7 +104,7 @@ class Solution:
                 else:
                     return min(A1[i1+1], A2[i2])
         
-        k1 = min(l1-1,round(k/2))
+        k1 = min(l1-1,round(k*l1/(l1+l2))
         #k2 = min(l2-1,k - k1)
         
         #exactly k1 numbers are smaller than k1small in A1
