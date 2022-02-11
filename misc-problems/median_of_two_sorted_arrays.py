@@ -1,6 +1,3 @@
-### NOT WORKING. failing for 
-#[3,4]
-#[1,2,5,6]
 
 """
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
@@ -42,8 +39,11 @@ class Solution:
         if j == -1:
             j = len(A)
         #
-        assert j > i
-        print(num,A,i,j)
+        if j<= i:
+            print('assert fail:',num,A,i,j)
+            assert j > i
+            
+        #print(num,A,i,j)
         if num <= A[i]:
             return i
         elif num > A[j-1]:
@@ -63,15 +63,15 @@ class Solution:
     def k_small(self, k:int, A: List[int],i: int=0, j: int=-1):
         if j == -1:
             j = len(A)
-        print ('k_small',k,A,i,j)
-        assert i + k < j
+        #print ('k_small',k,A,i,j)
+        #assert i + k < j
         return A[i+k]
      
     def find(self, k: int, A1: List[int], A2: List[int], i1 = 0, j1 = -1, i2 = 0, j2 = -1):
         #exactly k numbers are smaller than the returned number in 
         #the merged list A1[i1:j1]; A2[i2:j2]
         #i.e. it is (k+1)^th element in the merged list
-        print('find',k, A1, A2, i1,j1,i2,j2)
+        #print('find',k, A1, A2, i1,j1,i2,j2)
         if j1 == -1:
             j1 = len(A1)
         if j2 == -1:
@@ -80,7 +80,7 @@ class Solution:
         #
         l1 = j1 - i1
         l2 = j2 - i2
-        print('find l1, l2', l1, l2)
+        #print('find l1, l2', l1, l2)
         if l2 > l1:
             return self.find(k,A2, A1, i2, j2, i1, j1)
         #
@@ -89,16 +89,13 @@ class Solution:
         
         if k == 0:
             #return the smallest number
-            if A1[i1] < A2[i2]:
-                return A1[i1]
-            else:
-                return A2[i2]
+            return min(A1[i1], A2[i2])
+            
         
         if k == 1:
             if l1 == 1:
                 return max(A1[i1],A2[i2])
             else:
-                
                 if A2[i2] <= A1[i1]:
                     if l2 >= 2:
                         return min(A1[i1],A2[i2+1])
@@ -107,7 +104,7 @@ class Solution:
                 else:
                     return min(A1[i1+1], A2[i2])
         
-        k1 = min(l1-1,round(k*l1/(l1+l2)))
+        k1 = min(l1-1,round(k/2))
         #k2 = min(l2-1,k - k1)
         
         #exactly k1 numbers are smaller than k1small in A1
@@ -115,11 +112,18 @@ class Solution:
         
         #
         k12 = self.binary_search(k1small, A2, i2, j2) - i2
-        if k1 + k12 <= k:
+        if k12+i2 == j2:
+            y = k1small
+        else:
+            y = A2[i2+k12]
+        
+        if k1+k12 == k:
+            return min(k1small, y)
+        elif k1 + k12 <= k:
             #k^th smallest number lies in A1[k1:j1] and A2[k12:j2]
-            return self.find(k-k1-k12,A1,A2,k1,j1, k12,j2)
+            return self.find(k-k1-k12,A1,A2,i1+k1,j1, i2+k12, j2)
         elif k1 + k12 > k:
-            return self.find(k,A1,A2,i1,k1, i2, k12)
+            return self.find(k,A1,A2,i1, i1+k1, i2, i2+k12)
             
             
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
