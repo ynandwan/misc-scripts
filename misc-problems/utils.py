@@ -1,6 +1,64 @@
 import numpy as np
 import math
 
+def isValidSudoku(board: List[List[str]]) -> bool:
+  """
+  Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+Note:
+
+A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+Only the filled cells need to be validated according to the mentioned rules.
+Input: board = 
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+Output: true
+  """
+  
+        def is_valid(x):
+            a = set()
+            for b in x:
+                if b !=0 and b in a:
+                    return False
+                elif b!=0:
+                    a.add(b)
+            #
+            return True
+        
+        def check_lists(row_list):
+            for row in row_list:
+                if not is_valid(row):
+                    return False
+            return True
+           
+        rows = [[int(cell) if cell !='.' else 0 for cell in row] for row in board]
+        #print(rows)
+        if not check_lists(rows):
+            return False
+        
+        cols = list(zip(*rows))
+        #print(cols)
+        if not check_lists(cols):
+            return False
+        
+        grids = [[rows[3*i+k][3*j+l]  for k in range(3) for l in range(3)  ] for i in range(3) for j in range(3)]
+        #print(grids)
+        if not check_lists(grids):
+            return False
+        
+        return True
+        
+
 def is_correct(query,pred):
     return (match_query(query,pred) and is_safe_sudoku(pred))
 
